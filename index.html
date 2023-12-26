@@ -13,7 +13,7 @@
         <p id="phraseDisplay" class="mt-4 text-lg text-gray-800"></p>
     </div>
 
-    <script src="script.js">
+    <script>
         async function loadPhrases() {
             const response = await fetch('phrases.json');
             const phrases = await response.json();
