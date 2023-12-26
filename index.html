@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Phrase Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.4/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="text-center">
+        <button id="generateButton" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none">Generate Phrase</button>
+        <p id="phraseDisplay" class="mt-4 text-lg text-gray-800"></p>
+    </div>
+
+    <script src="script.js">
+        async function loadPhrases() {
+            const response = await fetch('phrases.json');
+            const phrases = await response.json();
+            return phrases;
+        }
+
+        // Function to get a random phrase from the array
+        function getRandomPhrase(phrases) {
+            const randomIndex = Math.floor(Math.random() * phrases.length);
+            return phrases[randomIndex];
+        }
+
+        // Main function to handle the button click
+        async function handleButtonClick() {
+            const phrases = await loadPhrases();
+            const randomPhrase = getRandomPhrase(phrases);
+            document.getElementById('phraseDisplay').innerText = randomPhrase;
+        }
+
+        // Attach the event listener to the button
+        document.getElementById('generateButton').addEventListener('click', handleButtonClick);
+    </script>
+</body>
+</html>
