@@ -6,11 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Phrase Generator</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.4/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        .custom-background {
+            background-image: url('spain.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .epic-text {
+            color: white; /* Bright text for contrast */
+            text-shadow: 2px 2px 4px #000000; /* Text shadow for depth */
+            font-weight: bold; /* Make text bold */
+        }
+    </style>
 </head>
-<body class="flex items-center justify-center h-screen bg-gray-100">
+<body class="flex items-center justify-center h-screen custom-background">
     <div class="text-center">
-        <button id="generateButton" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none">Generate Phrase</button>
-        <p id="phraseDisplay" class="mt-4 text-lg text-gray-800"></p>
+        <button id="generateButton" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-800 focus:outline-none">Generate Phrase</button>
+        <p id="phraseDisplay" class="mt-4 text-lg epic-text"></p>
     </div>
 
     <script>
